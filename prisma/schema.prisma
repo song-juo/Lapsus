@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Guild {
+  id String @id
+  prefix String @default(">")
+  antispam Json @default("{}")
+  autoroleID String @default("")
+  security Json @default("{}")
+  welcome Json @default("{}")
+  leave Json @default("{}")
+  blacklisted Boolean @default(false)
+}
+
+model Member {
+  id String @id
+  xp Int @default(0)
+  blacklisted Boolean @default(false)
+}
+
+model User {
+  id String @id
+  xp Int @default(0)
+  blacklisted Boolean @default(false)
+  profile Json @default("{}")
+}
