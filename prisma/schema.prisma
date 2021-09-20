@@ -9,24 +9,16 @@ generator client {
 
 model Guild {
   id String @id
-  prefix String @default(">")
-  antispam Json @default("{}")
-  autoroleID String @default("")
-  security Json @default("{}")
-  welcome Json @default("{}")
-  leave Json @default("{}")
-  blacklisted Boolean @default(false)
-}
-
-model Member {
-  id String @id
-  xp Int @default(0)
+  prefix String @default("-")
+  moderation Json @default("{}")
+  settings Json @default("{}")
+  members Json @default("{}")
   blacklisted Boolean @default(false)
 }
 
 model User {
   id String @id
   xp Int @default(0)
-  blacklisted Boolean @default(false)
   profile Json @default("{}")
+  blacklisted Boolean @default(false)
 }
