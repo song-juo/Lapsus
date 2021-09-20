@@ -37,8 +37,8 @@ export default class NezumiClient extends Client {
     async login(token: string): Promise<any> {
       try {
         await super.login(token);
-      } catch (e) {
-        this.log('error', e);
+      } catch (error) {
+          this.log('error', error as string);
       }
     }
 

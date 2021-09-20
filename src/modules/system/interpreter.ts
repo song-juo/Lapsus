@@ -14,7 +14,7 @@ export default class MessageEvent {
       const guildData = await this.client.database.getGuild(message.guild?.id!);
 
       if (message.author.bot) return;
-      if (!message.content.startsWith('!', undefined)) return;
+      if (!message.content.startsWith(guildData.prefix, undefined)) return;
 
       const args: string[] = message.content.split(/\s+/g);
       const command: string = message.content.split(' ')[0].slice(1);

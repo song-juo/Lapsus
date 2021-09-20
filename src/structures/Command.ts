@@ -3,7 +3,7 @@ import moment from 'moment';
 import chalk from 'chalk';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
-import { NGuild } from './Database';
+import { NGuild } from '../interfaces/NGuild';
 
 interface CommandProps {
     name: string;
@@ -24,7 +24,7 @@ export interface Container {
 }
 
 export abstract class Command {
-    private client: NezumiClient;
+    public client: NezumiClient;
 
     public cache: NCache;
 
