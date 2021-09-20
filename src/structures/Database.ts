@@ -1,29 +1,7 @@
+// @ts-ignore
 import { PrismaClient } from '@prisma/client';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
-
-export interface NGuild {
-    id: string;
-    prefix: string;
-    antispam: JSON;
-    autoroleID: string;
-    security: JSON;
-    welcome: JSON;
-    leave: JSON;
-    blacklisted: JSON;
-}
-
-export interface NUser {
-    id: string;
-    xp: number;
-    blacklisted: boolean
-}
-
-export interface NMember {
-    id: string;
-    xp: string;
-    blacklisted: boolean;
-}
 
 export class Database {
     private cache: NCache;
