@@ -17,7 +17,7 @@ export default class Ping extends Command {
   }
 
   async run(msg: Message): Promise<Command> {
-    msg.reply('pong');
+    msg.reply('pong!!!');
     return this;
   }
 }
