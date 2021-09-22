@@ -1,5 +1,3 @@
-
- <h1>Nezumi</h1>
 <h1 align="center">
   <br>
  <img src="https://i.imgur.com/YhZz1TH.png"</img>
