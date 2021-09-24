@@ -1,5 +1,7 @@
-export interface Moderator {
-    permissions: string[],
-    banGif: string,
-
+export default interface moderator {
+    id: string;
+    customPermissions: string[]
+    customGif: string
+    chatMessages: number
+    callTime: string
 }

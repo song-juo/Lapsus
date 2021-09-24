@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
 
-export class Database {
+export default class Database {
     private cache: NCache;
 
     public prisma: PrismaClient;
@@ -14,6 +14,9 @@ export class Database {
       this.client = client;
       this.cache = this.client.cache;
       this.prisma = new PrismaClient();
+      this.prisma.$connect().then(() => {
+        this.client.log('info', 'Servidor postgres iniciado!');
+      });
     }
 
     async getGuild(guildID: string) {
@@ -27,7 +30,6 @@ export class Database {
       } else {
         fetchedGuild = JSON.parse(fetchedGuild as string);
       }
-
       return fetchedGuild;
     }
 }
