@@ -9,10 +9,9 @@ interface profile {
     medals: string[]
     reputation: number
     description: string
-
 }
 
-interface NUser {
+interface IUser {
     id: string
     xp: number
     balance: balance
@@ -20,4 +19,4 @@ interface NUser {
     blacklisted: boolean
 }
 
-export default NUser;
+export default IUser;

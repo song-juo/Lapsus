@@ -3,24 +3,26 @@ import moment from 'moment';
 import chalk from 'chalk';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
-import { NGuild } from '../interfaces/NGuild';
+import { IGuild } from '../interfaces/IGuild';
+import IModerator from '../interfaces/IModerator';
 
 interface CommandProps {
-    name: string;
-    description: string;
-    usage: string;
-    category: string;
-    cooldown: number;
-    aliases: Array<string>;
-    botPerms: PermissionResolvable;
-    userPerms: PermissionResolvable;
+    name: string
+    description: string
+    usage: string
+    category: string
+    cooldown: number
+    aliases: Array<string>
+    botPerms: PermissionResolvable
+    userPerms: PermissionResolvable
 }
 
 export interface Container {
-    member: GuildMember;
-    client: NezumiClient;
-    args: Array<string>;
-    guildData: NGuild;
+    member: GuildMember
+    client: NezumiClient
+    args: Array<string>
+    guildData: IGuild
+    moderatorData?: IModerator
 }
 
 export abstract class Command {
@@ -60,7 +62,7 @@ export abstract class Command {
     // eslint-disable-next-line no-unused-vars
     abstract run(msg: Message, container: Container): Promise<any>;
 
-    async check(msg: Message, args: Array<string>, member: GuildMember, guildData: NGuild) {
+    async check(msg: Message, args: Array<string>, member: GuildMember, guildData: IGuild) {
       const inCooldown: any = await this.cache.checkCooldown(this.name, member.id);
       const cooldown = moment().diff(moment(inCooldown), 'seconds');
 
@@ -77,6 +79,12 @@ export abstract class Command {
       if (!msg.guild?.me?.permissions.has(this.botPerms)) {
         await msg.channel.send(`${member} Perdão, mas eu não possuo as permissões necessárias para executar este comando.`);
         return;
+      }
+
+      const container = {};
+
+      if (this.category === 'moderation') {
+        
       }
 
       const toAdd = moment().add(this.cooldown, 'seconds').toISOString();

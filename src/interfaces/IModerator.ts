@@ -1,4 +1,4 @@
-export default interface moderator {
+export default interface IModerator {
     id: string;
     customPermissions: string[]
     customGif: string
