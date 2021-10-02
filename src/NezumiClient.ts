@@ -4,7 +4,7 @@ import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment';
 import NCache from './structures/Cache';
-import { Database } from './structures/Database';
+import Database from './structures/Database';
 import { Command } from './structures/Command';
 
 interface NezumiOptions extends ClientOptions {
@@ -38,7 +38,7 @@ export default class NezumiClient extends Client {
       try {
         await super.login(token);
       } catch (error) {
-          this.log('error', error as string);
+        this.log('error', error as string);
       }
     }
 
