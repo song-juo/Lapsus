@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Banco de dados, sistema de caching, gerenciamento de permissões, comandos modulares e muito mais!.</h4>
+<h4 align="center">Banco de dados, sistema de caching, gerenciamento de permissões, comandos modulares e muito mais!</h4>
 
 <p align="center">
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="GitHub Actions">
