@@ -1,7 +1,7 @@
 import { Guild } from 'discord.js';
 import NezumiClient from '../../NezumiClient';
 
-export default class Ready {
+export default class guildDelete {
     private client: NezumiClient;
 
     public trigger: string = 'guildDelete';
