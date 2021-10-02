@@ -1,4 +1,4 @@
-interface premium {
+export interface premium {
   active: true
   expiration: Date
   level: number
@@ -7,6 +7,6 @@ interface premium {
 }
 
 export default interface IMember {
-  memberID: string
+  id: string
   premium: premium
 }

@@ -4,8 +4,8 @@ import IMember from './IMember';
 import moderator from './IModerator';
 
 export interface serverModeration {
-    staffs: moderator[],
-    groups: group[]
+    staffs: Collection<String, moderator>,
+    groups: Collection<String, group>
 }
 
 export interface IGuild {
