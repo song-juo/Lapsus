@@ -8,7 +8,7 @@ export interface serverModeration {
     groups: Collection<String, group>
 }
 
-export interface IGuild {
+export default interface IGuild {
     id: string
     prefix: string
     settings: JSON

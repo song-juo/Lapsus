@@ -11,12 +11,10 @@ interface profile {
     description: string
 }
 
-interface IUser {
+export default interface IUser {
     id: string
     xp: number
     balance: balance
     profile: profile
     blacklisted: boolean
 }
-
-export default IUser;
