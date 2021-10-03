@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import moment from 'moment';
 import NCache from './structures/Cache';
 import Database from './structures/Database';
-import { Command } from './structures/Command';
+import Command from './structures/Command';
 
 interface NezumiOptions extends ClientOptions {
     moderators?: Array<string>,
