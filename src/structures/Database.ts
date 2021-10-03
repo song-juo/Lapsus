@@ -1,7 +1,9 @@
 // @ts-ignore
 import { PrismaClient } from '@prisma/client';
+import IGuild from '../interfaces/IGuild';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
+import GuildData from './GuildData';
 
 export default class Database {
     private cache: NCache;
@@ -30,6 +32,8 @@ export default class Database {
       } else {
         fetchedGuild = JSON.parse(fetchedGuild as string);
       }
-      return fetchedGuild;
+
+      const guildData: IGuild = new GuildData(fetchedGuild);
+      return guildData;
     }
 }
