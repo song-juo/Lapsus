@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { IGuild } from '../../interfaces/IGuild';
+import IGuild from '../../interfaces/IGuild';
 import NezumiClient from '../../NezumiClient';
 
 export default class MessageEvent {
@@ -12,7 +12,7 @@ export default class MessageEvent {
     }
 
     async run(message: Message): Promise<void> {
-      const guildData = await this.client.database.getGuild(message.guild?.id!)
+      const guildData: IGuild = await this.client.database.getGuild(message.guild?.id!);
 
       if (message.author.bot) return;
       if (!message.content.startsWith(guildData.prefix, undefined)) return;
