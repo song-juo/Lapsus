@@ -1,7 +1,7 @@
 import { PermissionResolvable } from 'discord.js';
 import Moderator from './IModerator';
 
-export default interface Group {
+export default interface IGroup {
     id: string
     name: string
     createdAt: Date
