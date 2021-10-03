@@ -3,29 +3,11 @@ import moment from 'moment';
 import chalk from 'chalk';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
-import { IGuild } from '../interfaces/IGuild';
-import IModerator from '../interfaces/IModerator';
+import IGuild from '../interfaces/IGuild';
+import ICommandProps from '../interfaces/ICommandProps';
+import IContainer from '../interfaces/IContainer';
 
-interface CommandProps {
-    name: string
-    description: string
-    usage: string
-    category: string
-    cooldown: number
-    aliases: Array<string>
-    botPerms: PermissionResolvable
-    userPerms: PermissionResolvable
-}
-
-export interface Container {
-    member: GuildMember
-    client: NezumiClient
-    args: Array<string>
-    guildData: IGuild
-    moderatorData?: IModerator
-}
-
-export abstract class Command {
+export default abstract class Command implements ICommandProps {
     public client: NezumiClient;
 
     public cache: NCache;
@@ -46,7 +28,7 @@ export abstract class Command {
 
     public cooldown: number;
 
-    constructor(client: NezumiClient, options: CommandProps) {
+    constructor(client: NezumiClient, options: ICommandProps) {
       this.client = client;
       this.cache = this.client.cache;
       this.cooldown = options.cooldown;
@@ -60,7 +42,7 @@ export abstract class Command {
     }
 
     // eslint-disable-next-line no-unused-vars
-    abstract run(msg: Message, container: Container): Promise<any>;
+    abstract run(msg: Message, container: IContainer): Promise<any>;
 
     async check(msg: Message, args: Array<string>, member: GuildMember, guildData: IGuild) {
       const inCooldown: any = await this.cache.checkCooldown(this.name, member.id);
@@ -81,18 +63,14 @@ export abstract class Command {
         return;
       }
 
-      const container = {};
-
-      if (this.category === 'moderation') {
-        
-      }
-
       const toAdd = moment().add(this.cooldown, 'seconds').toISOString();
 
       await this.cache.removeCooldown(this.name, member.id);
       await this.cache.setCooldown(this.name, member.id, toAdd);
 
       console.log(`[${chalk.yellow.bold(moment(new Date()).format('HH:mm:ss'))}]: Comando ${chalk.redBright.bold(this.name)} usado por ${chalk.cyan.bold(member?.user.tag, `(${member.id})`)} em ${chalk.green.bold(msg.guild?.name, `(${msg.guild?.id})`)}`);
+
+      // Handling subcommands
 
       await this.run(msg, {
         client: this.client, args, member, guildData,
