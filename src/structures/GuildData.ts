@@ -1,5 +1,7 @@
 import { Collection } from 'discord.js';
-import { IGuild, serverModeration } from '../interfaces/IGuild';
+import IGuild, { serverModeration } from '../interfaces/IGuild';
+import IGroup from '../interfaces/IGroup';
+import IModerator from '../interfaces/IModerator';
 import IMember from '../interfaces/IMember';
 
 export default class GuildData implements IGuild {
@@ -25,15 +27,27 @@ export default class GuildData implements IGuild {
     }
 
     fillCollections() {
-      const memberCollection = new Collection();
-      const groupCollection = new Collection();
-      const staffCollection = new Collection();
+      const memberCollection: Collection<string, IMember> = new Collection();
+      const groupCollection: Collection<string, IGroup> = new Collection();
+      const staffCollection: Collection<string, IModerator> = new Collection();
 
       this.members.forEach((user) => {
         memberCollection.set(user.id, user);
       });
 
-      return memberCollection;
+      this.moderation.groups.forEach((group) => {
+        groupCollection.set(group.id, group);
+      });
+
+      this.moderation.staffs.forEach((staff) => {
+        staffCollection.set(staff.id, staff);
+      });
+
+      this.members = memberCollection;
+      this.moderation.groups = groupCollection;
+      this.moderation.staffs = staffCollection;
+
+      return this;
     }
 }
 
