@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
- <img src="https://i.imgur.com/YhZz1TH.png"</img>
+ <img src="https://i.imgur.com/f1XLm43.png"</img>
   <br>
   Gaesant's Boilerplate: Nezumi
   <br>
