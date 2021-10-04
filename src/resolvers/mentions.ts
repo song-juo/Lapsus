@@ -6,10 +6,10 @@ export default {
   resolve: async (msg: Message, content: string = '854548450603565097', bot: boolean = false) => {
     const { guild }: Message = msg;
     const rawMentions = msg?.mentions?.members?.map((m) => m).length;
-      /**
-       * @cache  { External (discord.js lib) }:
-       * Finding users locally trough already downloaded data
-       */
+    /**
+    * @cache  { External (discord.js lib) }:
+    * Finding users locally trough already downloaded data
+    */
     if (!rawMentions) {
       const members = guild?.members.cache.filter((m): m is GuildMember => {
         if (!bot && m.user.bot) return false;
