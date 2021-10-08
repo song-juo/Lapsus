@@ -18,7 +18,7 @@
 
 # Overview
 
-Nezumi é um template gratuito disponibilizado por mim, para facilitar o desenvolvimento de bots para Discord poupando os desenvolvedores da tarefa cansativa de criar uma base sólida para seus chatbots e focar no que realmente importa: **criatividade!** e **liberdade**.  
+LAPSUS é um template gratuito disponibilizado por mim, para facilitar o desenvolvimento de bots para Discord poupando os desenvolvedores da tarefa cansativa de criar uma base sólida para seus chatbots e focar no que realmente importa: **criatividade!** e **liberdade**.  
 
 **Dentre as features que já foram implementadas, estão em destaque:**
 
