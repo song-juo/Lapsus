@@ -1,7 +1,4 @@
-import { GuildMember, PermissionResolvable } from 'discord.js';
-import NezumiClient from '../NezumiClient';
-import IGuild from './IGuild';
-import IModerator from './IModerator';
+import { PermissionResolvable } from 'discord.js';
 
 export default interface CommandProps {
     name: string

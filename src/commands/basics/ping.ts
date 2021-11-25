@@ -1,6 +1,6 @@
 import { Message } from 'discord.js';
 import NezumiClient from '../../NezumiClient';
-import { Command } from '../../structures/Command';
+import Command from '../../structures/Command';
 
 export default class Ping extends Command {
   constructor(client: NezumiClient) {
