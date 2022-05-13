@@ -1,6 +1,6 @@
 import { PermissionResolvable } from 'discord.js';
 
-export default interface CommandProps {
+interface CommandProps {
     name: string
     description: string
     usage: string
@@ -10,3 +10,5 @@ export default interface CommandProps {
     botPerms: PermissionResolvable
     userPerms: PermissionResolvable
 }
+
+export default CommandProps;

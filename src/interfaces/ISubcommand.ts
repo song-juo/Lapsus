@@ -1,4 +1,6 @@
-export default interface ISubcommand {
+interface ISubcommand {
     name: string,
     args: string[]
 }
+
+export default ISubcommand;

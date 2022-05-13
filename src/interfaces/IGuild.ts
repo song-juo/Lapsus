@@ -1,6 +1,6 @@
 import { Collection } from 'discord.js';
 import group from './IGroup';
-import IMember from './IMember';
+import { IMember } from './IMember';
 import moderator from './IModerator';
 
 export interface serverModeration {
@@ -8,7 +8,7 @@ export interface serverModeration {
     groups: Collection<String, group>
 }
 
-export default interface IGuild {
+export interface IGuild {
     id: string
     prefix: string
     settings: JSON

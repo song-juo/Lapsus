@@ -6,7 +6,7 @@ export interface premium {
   vipCall: string
 }
 
-export default interface IMember {
+export interface IMember {
   id: string
   premium: premium
 }

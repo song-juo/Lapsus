@@ -1,20 +1,22 @@
-interface balance {
+interface _balance {
     stars: number
     gems: number
     items: string[]
 }
 
-interface profile {
+interface _profile {
     banner: string
     medals: string[]
     reputation: number
     description: string
 }
 
-export default interface IUser {
+interface IUser {
     id: string
     xp: number
-    balance: balance
-    profile: profile
+    balance: _balance
+    profile: _profile
     blacklisted: boolean
 }
+
+export default IUser;
