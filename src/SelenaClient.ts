@@ -3,7 +3,7 @@ import glob from 'glob';
 import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment';
-import NCache from './structures/Cache';
+import SCache from './structures/Cache';
 import Database from './structures/Database';
 import Command from './structures/Command';
 
@@ -14,10 +14,10 @@ interface NezumiOptions extends ClientOptions {
     administrators: Array<string>,
 }
 
-export default class NezumiClient extends Client {
+export default class SelenaClient extends Client {
     public commands: Collection<unknown, unknown>;
 
-    public cache: NCache;
+    public cache: SCache;
 
     public database: Database;
 
@@ -30,7 +30,7 @@ export default class NezumiClient extends Client {
 
       this.login(clientOptions!.token);
 
-      this.cache = new NCache(this);
+      this.cache = new SCache(this);
       this.database = new Database(this);
     }
 

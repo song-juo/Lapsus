@@ -1,10 +1,10 @@
 import { Collection } from 'discord.js';
-import IGuild, { serverModeration } from '../interfaces/IGuild';
-import IGroup from '../interfaces/IGroup';
-import IModerator from '../interfaces/IModerator';
-import IMember from '../interfaces/IMember';
+import { SGuild, serverModeration } from '../interfaces/Guild';
+import Group from '../interfaces/Group';
+import Moderator from '../interfaces/Moderator';
+import { SMember } from '../interfaces/SMember';
 
-export default class GuildData implements IGuild {
+export default class GuildData implements SGuild {
     public id: string
 
     public prefix: string
@@ -13,11 +13,11 @@ export default class GuildData implements IGuild {
 
     public moderation: serverModeration
 
-    public members: Collection<string, IMember>
+    public members: Collection<string, SMember>
 
     public blacklisted: JSON
 
-    constructor(baseData: IGuild) {
+    constructor(baseData: SGuild) {
       this.id = baseData.id;
       this.prefix = baseData.prefix;
       this.settings = baseData.settings;
@@ -27,9 +27,9 @@ export default class GuildData implements IGuild {
     }
 
     fillCollections() {
-      const memberCollection: Collection<string, IMember> = new Collection();
-      const groupCollection: Collection<string, IGroup> = new Collection();
-      const staffCollection: Collection<string, IModerator> = new Collection();
+      const memberCollection: Collection<string, SMember> = new Collection();
+      const groupCollection: Collection<string, Group> = new Collection();
+      const staffCollection: Collection<string, Moderator> = new Collection();
 
       this.members.forEach((user) => {
         memberCollection.set(user.id, user);

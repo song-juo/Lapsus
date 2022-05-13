@@ -1,7 +1,6 @@
-// @ts-ignore
 import { PrismaClient } from '@prisma/client';
-import IGuild from '../interfaces/IGuild';
-import NezumiClient from '../NezumiClient';
+import { SGuild } from '../interfaces/Guild';
+import NezumiClient from '../SelenaClient';
 import NCache from './Cache';
 import GuildData from './GuildData';
 
@@ -17,7 +16,7 @@ export default class Database {
       this.cache = this.client.cache;
       this.prisma = new PrismaClient();
       this.prisma.$connect().then(() => {
-        this.client.log('info', 'Servidor postgres iniciado!');
+        this.client.log('info', 'PostgreSQL started');
       });
     }
 
@@ -33,7 +32,7 @@ export default class Database {
         fetchedGuild = JSON.parse(fetchedGuild as string);
       }
 
-      const guildData: IGuild = new GuildData(fetchedGuild);
+      const guildData: SGuild = new GuildData(fetchedGuild);
       return guildData;
     }
 }

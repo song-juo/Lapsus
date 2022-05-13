@@ -11,7 +11,7 @@ interface _profile {
     description: string
 }
 
-interface IUser {
+interface SUser {
     id: string
     xp: number
     balance: _balance
@@ -19,4 +19,4 @@ interface IUser {
     blacklisted: boolean
 }
 
-export default IUser;
+export default SUser;

@@ -3,11 +3,11 @@ import moment from 'moment';
 import chalk from 'chalk';
 import NezumiClient from '../NezumiClient';
 import NCache from './Cache';
-import IGuild from '../interfaces/IGuild';
-import ICommandProps from '../interfaces/ICommandProps';
-import IContainer from '../interfaces/IContainer';
+import { SGuild } from '../interfaces/Guild';
+import CommandProps from '../interfaces/CommandProps';
+import IContainer from '../interfaces/Container';
 
-export default abstract class Command implements ICommandProps {
+export default abstract class Command implements CommandProps {
     public client: NezumiClient;
 
     public cache: NCache;
@@ -44,7 +44,7 @@ export default abstract class Command implements ICommandProps {
     // eslint-disable-next-line no-unused-vars
     abstract run(msg: Message, container: IContainer): Promise<any>;
 
-    async check(msg: Message, args: Array<string>, member: GuildMember, guildData: IGuild) {
+    async check(msg: Message, args: Array<string>, member: GuildMember, guildData: SGuild) {
       const inCooldown: any = await this.cache.checkCooldown(this.name, member.id);
       const cooldown = moment().diff(moment(inCooldown), 'seconds');
 
