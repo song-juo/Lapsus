@@ -1,14 +1,14 @@
 import { Message, GuildMember, PermissionResolvable } from 'discord.js';
 import moment from 'moment';
 import chalk from 'chalk';
-import NezumiClient from '../NezumiClient';
+import SelenaClient from '../SelenaClient';
 import NCache from './Cache';
 import { SGuild } from '../interfaces/Guild';
 import CommandProps from '../interfaces/CommandProps';
-import IContainer from '../interfaces/Container';
+import Container from '../interfaces/Container';
 
 export default abstract class Command implements CommandProps {
-    public client: NezumiClient;
+    public client: SelenaClient;
 
     public cache: NCache;
 
@@ -28,7 +28,9 @@ export default abstract class Command implements CommandProps {
 
     public cooldown: number;
 
-    constructor(client: NezumiClient, options: ICommandProps) {
+    public locale: string;
+
+    constructor(client: SelenaClient, options: CommandProps) {
       this.client = client;
       this.cache = this.client.cache;
       this.cooldown = options.cooldown;
@@ -42,7 +44,7 @@ export default abstract class Command implements CommandProps {
     }
 
     // eslint-disable-next-line no-unused-vars
-    abstract run(msg: Message, container: IContainer): Promise<any>;
+    abstract run(msg: Message, container: Container): Promise<any>;
 
     async check(msg: Message, args: Array<string>, member: GuildMember, guildData: SGuild) {
       const inCooldown: any = await this.cache.checkCooldown(this.name, member.id);
@@ -70,7 +72,7 @@ export default abstract class Command implements CommandProps {
 
       console.log(`[${chalk.yellow.bold(moment(new Date()).format('HH:mm:ss'))}]: Comando ${chalk.redBright.bold(this.name)} usado por ${chalk.cyan.bold(member?.user.tag, `(${member.id})`)} em ${chalk.green.bold(msg.guild?.name, `(${msg.guild?.id})`)}`);
 
-      // Handling subcommands
+      // Handling subcommands (coming soon)
 
       await this.run(msg, {
         client: this.client, args, member, guildData,

@@ -1,12 +1,12 @@
 import { Guild } from 'discord.js';
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 
 export default class guildDelete {
-    private client: NezumiClient;
+    private client: SelenaClient;
 
     public trigger: string = 'guildDelete';
 
-    constructor(client: NezumiClient) {
+    constructor(client: SelenaClient) {
       this.client = client;
     }
 

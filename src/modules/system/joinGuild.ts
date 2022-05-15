@@ -1,12 +1,12 @@
 import { Guild } from 'discord.js';
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 
 export default class guildCreate {
-  private client: NezumiClient;
+  private client: SelenaClient;
 
   public trigger: string = 'guildCreate';
 
-  constructor(client: NezumiClient) {
+  constructor(client: SelenaClient) {
     this.client = client;
   }
 

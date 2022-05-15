@@ -1,10 +1,10 @@
 import dotenv from 'dotenv';
-import NezumiClient from './NezumiClient';
+import SelenaClient from './SelenaClient';
 
 dotenv.config();
 
 // eslint-disable-next-line no-unused-vars
-const client: NezumiClient = new NezumiClient({
-  administrators: ['756656368852795452'],
+const client: SelenaClient = new SelenaClient({
+  administrators: ['263477867608801280'],
   token: process.env.TOKEN as string,
 });

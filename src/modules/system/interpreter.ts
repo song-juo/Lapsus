@@ -1,13 +1,13 @@
 import { Message } from 'discord.js';
 import { SGuild } from '../../interfaces/Guild';
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 
 export default class MessageEvent {
-    private client: NezumiClient;
+    private client: SelenaClient;
 
     public trigger: string = 'message';
 
-    constructor(client: NezumiClient) {
+    constructor(client: SelenaClient) {
       this.client = client;
     }
 

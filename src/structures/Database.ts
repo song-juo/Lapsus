@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { SGuild } from '../interfaces/Guild';
-import NezumiClient from '../SelenaClient';
+import SelenaClient from '../SelenaClient';
 import NCache from './Cache';
 import GuildData from './GuildData';
 
@@ -9,9 +9,9 @@ export default class Database {
 
     public prisma: PrismaClient;
 
-    public client: NezumiClient;
+    public client: SelenaClient;
 
-    constructor(client: NezumiClient) {
+    constructor(client: SelenaClient) {
       this.client = client;
       this.cache = this.client.cache;
       this.prisma = new PrismaClient();

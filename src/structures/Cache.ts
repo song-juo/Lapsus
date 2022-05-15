@@ -1,12 +1,17 @@
 import { Tedis } from 'tedis';
-import NezumiClient from '../NezumiClient';
+import SelenaClient from '../SelenaClient';
+
+/**
+ * Redis instance manager, great for handling large amounts
+ * of commands without stress our database
+ */
 
 export default class NCache {
-    private client: NezumiClient;
+    private client: SelenaClient;
 
     public tedis: Tedis;
 
-    constructor(client: NezumiClient) {
+    constructor(client: SelenaClient) {
       this.client = client;
 
       this.tedis = new Tedis({ port: 6379, host: '127.0.0.1' });
@@ -16,7 +21,6 @@ export default class NCache {
       });
     }
 
-    // Basic queries
     async set(queryOption: string, queryID: string) {
       const result = await this.tedis.set(queryOption, queryID);
       return result;
@@ -32,7 +36,14 @@ export default class NCache {
       return result;
     }
 
-    // Cooldown abstraction section
+    /**
+     * @param commandName Name of the target command
+     * @param id Member's ID (external: from Discord)
+     * @param time Cooldown time in seconds
+     * Command speficif cooldown feature, mitigates the user
+     * from using this specific command, until the cooldown
+     * still going.
+     */
     async setCooldown(commandName: string, id: string, time: any) {
       const identifier: string = `cooldown:${id}:${commandName}`;
       await this.tedis.set(identifier, time);

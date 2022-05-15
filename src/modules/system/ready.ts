@@ -1,11 +1,11 @@
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 
 export default class Ready {
-    private client: NezumiClient;
+    private client: SelenaClient;
 
     public trigger: string = 'ready';
 
-    constructor(client: NezumiClient) {
+    constructor(client: SelenaClient) {
       this.client = client;
     }
 

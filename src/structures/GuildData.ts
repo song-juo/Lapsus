@@ -4,7 +4,7 @@ import Group from '../interfaces/Group';
 import Moderator from '../interfaces/Moderator';
 import { SMember } from '../interfaces/SMember';
 
-export default class GuildData implements SGuild {
+class GuildData implements SGuild {
     public id: string
 
     public prefix: string
@@ -51,8 +51,4 @@ export default class GuildData implements SGuild {
     }
 }
 
-/*
-export interface IGuild {
-
-}
-*/
+export default GuildData;

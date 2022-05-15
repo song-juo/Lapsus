@@ -1,10 +1,10 @@
 import { Message, MessageEmbed } from 'discord.js';
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 import Command from '../../structures/Command';
-import IContainer from '../../interfaces/IContainer';
+import IContainer from '../../interfaces/Container';
 
 export default class Ban extends Command {
-  constructor(client: NezumiClient) {
+  constructor(client: SelenaClient) {
     super(client, {
       name: 'ban',
       description: 'Bane um usuário do servidor.',

@@ -1,12 +1,9 @@
-import { GuildMember } from 'discord.js';
-import NezumiClient from '../NezumiClient';
+import SelenaClient from '../SelenaClient';
 import { SGuild } from './Guild';
 import IModerator from './Moderator';
 
 interface Container {
-    member: GuildMember
-    client: NezumiClient
-    args: Array<string>
+    client: SelenaClient
     guildData: SGuild
     moderatorData?: IModerator
 }

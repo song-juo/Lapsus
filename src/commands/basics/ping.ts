@@ -1,9 +1,9 @@
 import { Message } from 'discord.js';
-import NezumiClient from '../../NezumiClient';
+import SelenaClient from '../../SelenaClient';
 import Command from '../../structures/Command';
 
 export default class Ping extends Command {
-  constructor(client: NezumiClient) {
+  constructor(client: SelenaClient) {
     super(client, {
       name: 'ping',
       description: '',

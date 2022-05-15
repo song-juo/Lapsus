@@ -1,5 +1,5 @@
 import { PermissionResolvable } from 'discord.js';
-import Moderator from './IModerator';
+import Moderator from './Moderator';
 
 interface IGroup {
     id: string
