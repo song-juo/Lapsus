@@ -1,4 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { GuildMember, Message, MessageEmbed } from 'discord.js';
+import GuildData from '../structures/GuildData';
+
+export interface responseDecorator {
+    type: string
+    format: (data: string) => string;
+}
 
 export interface SReply {
     content: string | MessageEmbed
@@ -7,8 +14,7 @@ export interface SReply {
 }
 
 export interface SResponder {
-    locale: 'pt-BR' | 'en-US'
-    msg: Message
-    member: GuildMember
-    reply: Promise<boolean>
+    readonly msg: Message
+    readonly guildData: GuildData
+    readonly member: GuildMember
 }

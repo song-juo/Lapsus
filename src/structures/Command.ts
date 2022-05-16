@@ -28,8 +28,6 @@ export default abstract class Command implements CommandProps {
 
     public cooldown: number;
 
-    public locale: string;
-
     constructor(client: SelenaClient, options: CommandProps) {
       this.client = client;
       this.cache = this.client.cache;
