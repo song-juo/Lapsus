@@ -1,5 +1,5 @@
 {
-  "name": "nezumi",
+  "name": "selena",
   "version": "0.0.1",
   "description": "Discord.js implementation with Redis, Postgres and TypeScript.",
   "main": "build/src/index.js",
